@@ -46,11 +46,18 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.0
+  lazy_load_indexed_stack: ^1.1.0
+#  better_player: ^0.0.84
   get: ^4.6.5
   dio: ^5.7.0  # 或者最新的版本
   get_storage: ^2.0.3
   flutter_markdown: ^0.6.10
   flutter_svg: ^2.0.6  # 请确保使用最新版本
+  sqflite: ^2.3.0 # 确认版本号
+  path_provider: ^2.0.15 # 确认版本号
+#  pinyin: ^2.0.0 # 确认版本号
+  video_player: ^2.8.1
+#  better_player: ^0.0.84
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -10,15 +10,13 @@ abstract class AppRoutes {
   static const SETTINGS = '/settings';
   static const VIDEO_PLAYERPAGE = '/videoPlayer';
 
-
-
   static const ROOT = '/';
+  static const HomePage = '/';
+  static const AppPage = '/appPage';
+  static const FilmListPage = '/filmListPage';
+  static const FilmDetailPage = '/filmDetailPage';
+  static const PlayerScreen = '/playerScreen';
   static const ChapterKnowledgePointsPage = '/chapterPage';
   static const SubjectDetailPage = '/subjectDetailPage';
-
-
-  // GetPage(name: '/blogHomePage', page: () => BlogHomePage()),
-  // GetPage(name: '/chapterPage', page: () => ChapterKnowledgePointsPage()),
-  // GetPage(name: '/subjectIntroPage', page: () => SubjectIntroPage()),
-
+  static const DemoPage = '/demoPage';
 }

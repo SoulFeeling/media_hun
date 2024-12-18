@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
         fallbackLocale: const Locale('en', 'US'),
         // 当语言设置不符合时的备用语言
         // initialRoute: AppRoutes.SPLASH,
-        initialRoute: AppRoutes.ROOT,
+        initialRoute: AppRoutes.AppPage,
         getPages: AppPages.routes,
         theme: themeController.isDarkMode.value ? AppThemes.darkTheme : AppThemes.lightTheme,
       ),
