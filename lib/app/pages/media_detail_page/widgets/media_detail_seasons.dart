@@ -106,6 +106,25 @@ class MediaDetailSeasons extends StatelessWidget {
                                 fit: BoxFit.cover,
                               ),
                             ),
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: ClipRRect(
+                                borderRadius: const BorderRadius.vertical(bottom: Radius.circular(8)),
+                                child: Container(
+                                  height: 4,
+                                  width: 160,
+                                  color: Colors.grey[300],
+                                  child: Align(
+                                    alignment: Alignment.centerLeft,
+                                    child: Container(
+                                      height: 4,
+                                      width: 160 * progress,
+                                      color: Colors.blue,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
                           ),
                           // 播放时长
                           Positioned(
@@ -139,28 +158,6 @@ class MediaDetailSeasons extends StatelessWidget {
                                   size: 36,
                                 ),
                               ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 4),
-                      // 进度条
-                      Stack(
-                        children: [
-                          Container(
-                            width: 160,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: Colors.grey[300],
-                              borderRadius: BorderRadius.circular(2),
-                            ),
-                          ),
-                          Container(
-                            width: 160 * progress,
-                            height: 4,
-                            decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(2),
                             ),
                           ),
                         ],
