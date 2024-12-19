@@ -9,19 +9,19 @@ class MediaDetailController extends GetxController {
   final episodes = [
     // 第1季
     [
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第一集名称'},
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第二集名称'},
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第三集名称'},
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第四集名称'},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第一集名称', 'duration': '20:45', 'progress': 0.5},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第二集名称', 'duration': '15:30', 'progress': 0.8},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第三集名称', 'duration': '25:00', 'progress': 0.3},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第四集名称', 'duration': '12:15', 'progress': 0.0},
     ],
     // 第2季
     [
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第一集名称'},
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第二集名称'},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第一集名称', 'duration': '22:15', 'progress': 0.4},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第二集名称', 'duration': '18:00', 'progress': 0.6},
     ],
     // 第3季
     [
-      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第一集名称'},
+      {'image': 'http://192.168.1.8:9001/p2896940977.webp', 'name': '第一集名称', 'duration': '20:00', 'progress': 0.0},
     ],
   ];
 }
@@ -84,22 +84,86 @@ class MediaDetailSeasons extends StatelessWidget {
               itemCount: controller.episodes[controller.selectedSeason.value - 1].length,
               itemBuilder: (context, index) {
                 final episode = controller.episodes[controller.selectedSeason.value - 1][index];
+                final String image = episode['image'] as String;
+                final String duration = episode['duration'] as String;
+                final double progress = (episode['progress'] as num).toDouble();
+
                 return Padding(
                   padding: const EdgeInsets.only(right: 16),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // 集图片 (16:9)
-                      Container(
-                        width: 160,
-                        height: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          image: DecorationImage(
-                            image: NetworkImage(episode['image']!),
-                            fit: BoxFit.cover,
+                      Stack(
+                        children: [
+                          Container(
+                            width: 160,
+                            height: 90,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              image: DecorationImage(
+                                image: NetworkImage(image),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
                           ),
-                        ),
+                          // 播放时长
+                          Positioned(
+                            bottom: 8,
+                            right: 8,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                              decoration: BoxDecoration(
+                                color: Colors.black.withOpacity(0.6),
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: Text(
+                                duration,
+                                style: const TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          // 播放按钮
+                          Positioned.fill(
+                            child: Center(
+                              child: GestureDetector(
+                                onTap: () {
+                                  // 播放按钮点击事件处理
+                                },
+                                child: Icon(
+                                  Icons.play_circle_outline,
+                                  color: Colors.white,
+                                  size: 36,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 4),
+                      // 进度条
+                      Stack(
+                        children: [
+                          Container(
+                            width: 160,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                          Container(
+                            width: 160 * progress,
+                            height: 4,
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(2),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 8),
                       // 集名称

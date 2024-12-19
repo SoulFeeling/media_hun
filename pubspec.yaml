@@ -57,6 +57,7 @@ dev_dependencies:
   path_provider: ^2.0.15 # 确认版本号
 #  pinyin: ^2.0.0 # 确认版本号
   video_player: ^2.8.1
+  isar: ^3.1.0+1 # 数据库存储-支持全文索引
 #  better_player: ^0.0.84
 
 # For information on the generic Dart part of this file, see the
