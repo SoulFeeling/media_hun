@@ -1,5 +1,6 @@
 import '../../../index.dart';
 import 'media_detail_controller.dart';
+import 'widgets/media_detail_actors.dart';
 import 'widgets/media_detail_file_info.dart';
 import 'widgets/media_detail_introduce.dart';
 import 'widgets/media_detail_player_button.dart';
@@ -9,8 +10,12 @@ import 'widgets/media_detail_show_info.dart';
 class MediaDetailPage extends StatelessWidget {
   // final MediaDetailController controller = Get.put(MediaDetailController());
 
+
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('影视详情'),
@@ -28,13 +33,16 @@ class MediaDetailPage extends StatelessWidget {
             SizedBox(height: 20),
 
             // 3. 影视集数展示模块
-
             MediaDetailSeasons(),
             SizedBox(height: 10),
 
             // 4. 简介模块
-            MediaDetailIntroduce(),
+            // 添加一个mock 简介数据
+
+            MediaDetailIntroduce(content: "这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介这是一个简介",),
             SizedBox(height: 20),
+            MediaDetailActors(),
+
 
             // 5. 演员列表展示模块
             Padding(

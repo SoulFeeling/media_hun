@@ -34,7 +34,7 @@ class MediaDetailSeasons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: 200,
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,7 +165,8 @@ class MediaDetailSeasons extends StatelessWidget {
                       const SizedBox(height: 8),
                       // 集名称
                       Text(
-                        '${index + 1}.${episode['name']}',
+                        '第 ${index + 1} 集',
+                        // '${index + 1}.${episode['name']}',
                         style: const TextStyle(fontSize: 14),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
