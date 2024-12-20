@@ -19,4 +19,18 @@ abstract class AppRoutes {
   static const ChapterKnowledgePointsPage = '/chapterPage';
   static const SubjectDetailPage = '/subjectDetailPage';
   static const DemoPage = '/demoPage';
+
+  static const MediaHomePage = '/mediaHomePage';
+  static const MediaDetailPage = '/MediaDetailPage';
+  static const MediaFilesPage = '/MediaFilesPage';
+  static const MediaFilesAddTypePage = '/MediaFilesAddTypePage';
+  static const MediaListPage = '/MediaListPage';
+  static const MediaSearchPage = '/MediaSearchPage';
+  static const MediaSettingsPage = '/MediaSettingsPage';
+
+  // 视频播放器
+  static const MediaPlayerScreen = '/MediaPlayerScreen';
+
+
+
 }

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
 
-import 'videos/film/film_home_page.dart';
+import '../views/videos/film/film_home_page.dart';
 
 class AppPageController extends GetxController {
-  // Index of the selected navigation item
   final RxInt selectedIndex = 0.obs;
 }
 
@@ -48,7 +47,6 @@ class AppPage extends StatelessWidget {
         ));
   }
 }
-
 
 class ResourceLibraryPage extends StatelessWidget {
   const ResourceLibraryPage({super.key});

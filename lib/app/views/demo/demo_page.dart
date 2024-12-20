@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../index.dart';
-import '../../pages/media_detail_page/media_detail_page.dart';
+import '../../pages/media/media_detail_page/media_detail_page.dart';
 import 'player_detail_page.dart';
 import 'player_detail.dart';
 
