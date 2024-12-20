@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../widgets/s_collapse.dart';
+
+import 'widgets/s_collapse.dart';
 import '../controllers/subject_detail_controller.dart';
 import '../models/chapter_model.dart';
 import '../models/knowledge_point_model.dart';

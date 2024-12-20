@@ -29,7 +29,7 @@ class WidgetLineTitle extends StatelessWidget {
             onPressed: () {
               // 跳转
               Get.toNamed(
-                AppRoutes.FilmListPage,
+                AppRoutes.MediaListPage,
                 parameters: {"title": title, "contentType": "history"},
               );
             },

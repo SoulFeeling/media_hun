@@ -19,13 +19,14 @@ class MediaDetailPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+
             // 1. 展示图片模块
             MediaDetailShowInfo(),
             SizedBox(height: 10),
 
             // 2. 播放按钮展示模块
             MediaDetailPlayerButton(),
-            SizedBox(height: 20),
+            SizedBox(height: 10),
 
             // 3. 影视集数展示模块
             MediaDetailSeasons(),

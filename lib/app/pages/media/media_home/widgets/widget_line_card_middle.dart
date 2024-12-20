@@ -25,7 +25,7 @@ class WidgetFilmCardMiddle extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: (){
-                      Get.toNamed(AppRoutes.FilmDetailPage, parameters: {"title": "最近播放记录", "contentType": "history"});
+                      Get.toNamed(AppRoutes.MediaDetailPage, parameters: {"title": "最近播放记录", "contentType": "history"});
                     },
                     child: Container(
                       width: 100,

@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:media_hub/app/pages/player/media_player_screen_controller.dart';
 
-import '../../views/players/full_screen_player.dart';
-import 'widgets/player_screen_full_.dart';
+import 'widgets/screen_horizontal.dart';
 
 class MediaPlayerScreen extends StatelessWidget {
-  final PlayerScreeController controller = Get.put(PlayerScreeController());
+  final MediaPlayerScreeController controller = Get.put(MediaPlayerScreeController());
 
   MediaPlayerScreen({super.key});
 
@@ -26,7 +25,7 @@ class MediaPlayerScreen extends StatelessWidget {
       children: [
         Center(
           child: Image.network(
-            'http://192.168.1.10:9001/image.png', // 视频区域使用替代图像
+            'http://192.168.1.8:9001/image.png', // 视频区域使用替代图像
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
@@ -35,7 +34,7 @@ class MediaPlayerScreen extends StatelessWidget {
         Positioned(
           // bottom: 20,
           // right: 20,
-          child: PlayerScreenFull(),
+          child: ScreenHorizontal(),
           // child: IconButton(
           //   onPressed: controller.toggleFullScreen,
           //   icon: Icon(Icons.fullscreen_exit, color: Colors.white, size: 32),

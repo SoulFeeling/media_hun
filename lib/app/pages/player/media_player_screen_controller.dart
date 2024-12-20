@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-class PlayerScreeController extends GetxController {
+class MediaPlayerScreeController extends GetxController {
   RxBool isFullScreen = false.obs;
 
   // 切换屏幕横竖屏

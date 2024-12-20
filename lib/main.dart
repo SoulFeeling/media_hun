@@ -1,4 +1,5 @@
 import 'app/locales/AppTranslation.dart';
+import 'app/themes/theme_controller.dart';
 import 'index.dart';
 
 Future<void> main() async {
@@ -29,7 +30,8 @@ class MyApp extends StatelessWidget {
       () => GetMaterialApp(
         title: 'GetX Theme Demo',
         translations: AppTranslation(),
-        smartManagement: SmartManagement.full, // 添加这行
+        smartManagement: SmartManagement.full,
+        // 添加这行
         // 引入多语言翻译配置
         locale: initialLocale,
         // 默认语言

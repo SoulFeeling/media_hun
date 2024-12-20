@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:media_hub/index.dart';
 
 class MediaDetailPlayerButton extends StatelessWidget {
   const MediaDetailPlayerButton({super.key});
@@ -9,6 +10,7 @@ class MediaDetailPlayerButton extends StatelessWidget {
       child: ElevatedButton.icon(
         onPressed: () {
           // 跳转到视频播放页面
+          Get.toNamed(AppRoutes.MediaPlayerScreen);
         },
         icon: Icon(Icons.play_arrow),
         label: Text('播放'),

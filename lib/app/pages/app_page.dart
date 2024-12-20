@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lazy_load_indexed_stack/lazy_load_indexed_stack.dart';
 
-import '../views/videos/film/film_home_page.dart';
+import 'media/media_files/media_files_page.dart';
+import 'media/media_home/media_home_page.dart';
+import 'media/media_settings/media_settings_page.dart';
 
 class AppPageController extends GetxController {
   final RxInt selectedIndex = 0.obs;
@@ -18,10 +20,10 @@ class AppPage extends StatelessWidget {
     return Obx(() => Scaffold(
           body: LazyLoadIndexedStack(
             index: controller.selectedIndex.value,
-            children: const [
-              FilmHomePage(),
-              ResourceLibraryPage(),
-              MyPage(),
+            children: [
+              MediaHomePage(),
+              MediaFilesPage(),
+              MediaSettingsPage(),
             ],
           ),
           bottomNavigationBar: BottomNavigationBar(
@@ -45,27 +47,5 @@ class AppPage extends StatelessWidget {
             ],
           ),
         ));
-  }
-}
-
-class ResourceLibraryPage extends StatelessWidget {
-  const ResourceLibraryPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('资源库页面'),
-    );
-  }
-}
-
-class MyPage extends StatelessWidget {
-  const MyPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('我的页面'),
-    );
   }
 }

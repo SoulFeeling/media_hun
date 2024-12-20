@@ -56,7 +56,7 @@ class _MediaDetailIntroduceState extends State<MediaDetailIntroduce> {
                   if (!_isExpanded)
                     Positioned(
                       bottom: 0,
-                      right: 0,
+                      right: 10,
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
@@ -67,10 +67,7 @@ class _MediaDetailIntroduceState extends State<MediaDetailIntroduce> {
                           color: Colors.white,
                           child: Text(
                             ' 全部>',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Theme.of(context).primaryColor,
-                            ),
+                            style: TextStyle(color: Theme.of(context).primaryColor),
                           ),
                         ),
                       ),

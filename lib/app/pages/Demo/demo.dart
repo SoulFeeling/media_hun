@@ -1,4 +1,5 @@
 import '../../../index.dart';
+import '../media/media_detail_page/media_detail_page.dart';
 import '../player/media_player_screen.dart';
 
 class DemoPage extends StatelessWidget {
@@ -21,9 +22,9 @@ class DemoPage extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text('影视列表3'),
+            title: const Text('影视详情页'),
             onTap: () {
-              Get.to(MediaPlayerScreen());
+              Get.to(MediaDetailPage());
             },
           ),
         ],
