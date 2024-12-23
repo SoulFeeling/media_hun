@@ -1,191 +1,235 @@
 import 'package:flutter/material.dart';
 
 class ScreenHorizontal extends StatelessWidget {
-  const ScreenHorizontal({super.key});
-
   @override
   Widget build(BuildContext context) {
-    // 获取屏幕宽高
-    final screenSize = MediaQuery.of(context).size;
-    final screenWidth = screenSize.width;
-    final screenHeight = screenSize.height;
-
     return Container(
-      width: screenWidth,
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      color: Colors.white30,
+      child: Stack(
         children: [
-          // 标题
-
-          Text(
-            "Continue to Watching",
-            style: const TextStyle(
-              color: Color(0xff0a0a0a),
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
+          // 背景图片
+          Positioned.fill(
+            child: Image.network(
+              'http://192.168.1.8:9001/image1.png',
+              fit: BoxFit.cover,
             ),
           ),
-          const SizedBox(height: 16),
-          // 播放器和底部控制区
-          Container(
-            width: screenWidth * 0.9, // 使用屏幕宽度的 90%
-            // height: screenHeight * 0.95, // 使用屏幕宽度的 90%
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                // 视频播放器区域
-                Container(
-                  width: screenWidth * 0.9,
-                  height: screenHeight * 0.35, // 自适应高度
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.black, // 模拟视频播放器的背景颜色
-                  ),
-                  child: Stack(
-                    children: [
-                      // 播放按钮
-                      Center(
-                        child: Container(
-                          width: 56,
-                          height: 56,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0x33ffffff),
-                          ),
-                          child: const Icon(
-                            Icons.play_arrow,
-                            color: Colors.white,
-                            size: 32,
-                          ),
-                        ),
-                      ),
-                      // 播放进度条
-                      Positioned(
-                        bottom: 16,
-                        left: 16,
-                        right: 16,
-                        child: Container(
-                          height: 24,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                            color: const Color(0x1effffff),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 4,
-                          ),
-                          child: Row(
-                            children: [
 
-                              const Text(
-                                "00:00:12",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Expanded(
-                                child: Container(
-                                  height: 2,
-                                  color: const Color(0x3dffffff),
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              const Text(
-                                "00:40:12",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ],
+          // 顶部
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Column(
+              children: [
+                // 第一行：当前时间
+                Padding(
+                  padding: const EdgeInsets.only(top: 3.0),
+                  child: Text(
+                    '下午 07:00',
+                    style: TextStyle(
+                      fontSize: 12, // 字体小一些
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                // 第二行：返回按钮 + 影视标题
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween, // 分配主轴上的空间
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.arrow_back_ios_sharp, color: Colors.white),
+                            onPressed: () {
+                              // 返回
+                              Navigator.of(context).pop();
+                            },
                           ),
-                        ),
+                          Text(
+                            '影视标题',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.camera, color: Colors.white), // 截图图标
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.favorite_border, color: Colors.white), // 收藏图标
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 16),
-                // 影视名称
-                Text(
-                  "The Falcon and The Winter Soldier",
-                  style: const TextStyle(
-                    color: Color(0xff0a0a0a),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
+              ],
+            ),
+          ),
+
+          // 中间显示
+          Positioned(
+              left: 20,
+              right: 20,
+              bottom: 0,
+              child: Container(
+                  height: MediaQuery.of(context).size.height * 0.55,
+                  child: Column(children: [
+                    // 第一行：播放按钮 + 播放进度
+                    Padding(
+                        padding: const EdgeInsets.only(bottom: 10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.rotate_right, size: 35, color: Colors.white),
+                              onPressed: () {},
+                            ),
+                            IconButton(
+                              icon: Icon(Icons.lock, size: 35, color: Colors.white),
+                              onPressed: () {},
+                            ),
+                          ],
+                        ))
+                  ]))),
+
+          // 底部：进度条 + 控制按钮
+          Positioned(
+            bottom: 0,
+            left: 20,
+            right: 20,
+            child: Column(
+              children: [
+                // 第一行：时间和进度条
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '00:00',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.7, // 进度条更长
+                        child: LinearProgressIndicator(
+                          value: 0.5,
+                          backgroundColor: Colors.white.withOpacity(0.2),
+                          valueColor: AlwaysStoppedAnimation(Colors.blue),
+                        ),
+                      ),
+                      Text(
+                        '02:30:00',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 16),
-                // 影视信息
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  spacing: 16,
-                  runSpacing: 8,
-                  children: [
-                    // 评分
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Container(
-                          width: 16,
-                          height: 16,
-                          decoration: const BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xffffbb38),
+                // 第二行：播放控制按钮
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 5.0, top: 5),
+                  // padding: const EdgeInsets.symmetric(vertical: 5.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      // 左边两组图标
+                      Row(
+                        children: [
+                          TextButton(onPressed: () {}, child: Text('1.0x', style: TextStyle(color: Colors.white))),
+                          TextButton(onPressed: () {}, child: Text('原画', style: TextStyle(color: Colors.white))),
+                        ],
+                      ),
+                      // 中间较大的图标
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.fast_rewind, size: 35, color: Colors.white),
+                            onPressed: () {},
                           ),
-                        ),
-                        const SizedBox(width: 6),
-                        const Text(
-                          "7.6",
-                          style: TextStyle(
-                            color: Color(0xffffbb38),
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
+                          SizedBox(width: 10),
+                          IconButton(
+                            icon: Icon(Icons.play_arrow, size: 40, color: Colors.white),
+                            onPressed: () {},
                           ),
-                        ),
-                      ],
-                    ),
-                    // 年份
-                    const Text(
-                      "2021",
-                      style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
+                          // IconButton(
+                          //   icon: Icon(Icons.pause, size: 35, color: Colors.white),
+                          //   onPressed: () {},
+                          // ),
+                          // 添加距离
+                          SizedBox(width: 10),
+                          IconButton(
+                            icon: Icon(Icons.fast_forward, size: 35, color: Colors.white),
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
-                    ),
-                    // 季数
-                    const Text(
-                      "1 Season",
-                      style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
+                      // 右边两组图标
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.subtitles, color: Colors.white),
+                            onPressed: () {},
+                          ),
+                          IconButton(
+                            icon: Icon(Icons.volume_up, color: Colors.white),
+                            onPressed: () {},
+                          ),
+                        ],
                       ),
-                    ),
-                    // 集数
-                    const Text(
-                      "7 Episodes",
-                      style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
-                      ),
-                    ),
-                    // 类型
-                    const Text(
-                      "Action",
-                      style: TextStyle(
-                        color: Color(0xff757575),
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
+            ),
+          ),
+
+          // 顶部渐进阴影
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 30,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.black.withOpacity(0.7),
+                    Colors.transparent,
+                  ],
+                ),
+              ),
+            ),
+          ),
+
+          // 底部渐进阴影
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 30,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withOpacity(0.7),
+                  ],
+                ),
+              ),
             ),
           ),
         ],

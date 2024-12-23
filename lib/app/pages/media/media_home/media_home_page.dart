@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import '../../../../index.dart';
+import 'package:media_hub/index.dart';
+import 'media_home_controller.dart';
 import 'widgets/widget_line_card_middle.dart';
 import 'widgets/widget_line_title.dart';
 
 class MediaHomePage extends StatelessWidget {
+
+  final MediaHomeController controller = Get.put(MediaHomeController());
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +24,7 @@ class MediaHomePage extends StatelessWidget {
             icon: const Icon(Icons.search),
             onPressed: () {
               // 搜索
-              Get.toNamed(AppRoutes.DemoPage);
+              Get.toNamed(AppRoutes.MediaSearchPage);
             },
           ),
         ],

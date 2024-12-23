@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ScreenVertical extends StatelessWidget {
-  const ScreenVertical({super.key});
+class ScreenHorizontal1 extends StatelessWidget {
+  const ScreenHorizontal1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,6 @@ class ScreenVertical extends StatelessWidget {
                           ),
                           child: Row(
                             children: [
-
                               const Text(
                                 "00:00:12",
                                 style: TextStyle(
